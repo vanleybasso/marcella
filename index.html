@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcella Soares · Neuropsicopedagoga</title>
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Juana&display=swap" rel="stylesheet">
+  <style>
+    /* reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #fcf9f2;
+      font-family: 'Barlow', sans-serif;
+      color: #3d3a3a;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* cores da paleta */
+    :root {
+      --marrom: #bc975f;
+      --bege-suave: #ede3ce;
+      --branco: #ffffff;
+      --cinza-texto: #2e2b2b;
+      --marrom-escuro: #a8864f;
+    }
+
+    /* tipografia */
+    h1, h2, h3, .logo, .btn, .section-title {
+      font-family: 'Juana', 'Barlow', serif;
+    }
+
+    h1, h2, h3 {
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .text-barlow {
+      font-family: 'Barlow', sans-serif;
+    }
+
+    .text-grotesque {
+      font-family: 'Bricolage Grotesque', sans-serif;
+    }
+
+    /* header - REDUZIDO */
+    header {
+      background: var(--branco);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--bege-suave);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--marrom);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .logo span {
+      font-weight: 300;
+      color: #5a4e3e;
+      font-size: 0.85rem;
+      display: block;
+      font-family: 'Barlow', sans-serif;
+      letter-spacing: 2px;
+    }
+
+    /* hero */
+    .hero {
+      padding: 50px 0 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+    }
+    .hero-content {
+      flex: 1 1 400px;
+    }
+    .hero-content h1 {
+      font-size: 3.4rem;
+      line-height: 1.1;
+      color: #1f1c1a;
+      margin-bottom: 16px;
+    }
+    .hero-content h1 strong {
+      color: var(--marrom);
+      font-weight: 500;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #3f3a36;
+      max-width: 500px;
+      margin-bottom: 28px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+    }
+    .hero-badge {
+      background: var(--bege-suave);
+      padding: 4px 18px;
+      border-radius: 40px;
+      display: inline-block;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      color: #3d352a;
+      margin-bottom: 20px;
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--marrom);
+      color: white;
+      padding: 14px 38px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.15s;
+      border: 1px solid var(--marrom);
+      font-family: 'Barlow', sans-serif;
+      text-align: center;
+      min-width: 200px;
+    }
+    .btn:hover {
+      background: var(--marrom-escuro);
+      border-color: var(--marrom-escuro);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--marrom);
+      border: 1px solid var(--marrom);
+    }
+    .btn-outline:hover {
+      background: var(--marrom);
+      color: white;
+    }
+
+    /* ====== FOTO DA MARCELLA ====== */
+    .hero-img {
+      flex: 0 0 300px;
+      text-align: center;
+    }
+    .hero-img .foto-wrapper {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(188, 151, 95, 0.2);
+      background: var(--bege-suave);
+      border: 4px solid var(--bege-suave);
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-img .foto-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+
+    /* seção sobre - TEXTO CENTRALIZADO */
+    .section {
+      padding: 60px 0;
+      border-bottom: 1px solid #ede3ce;
+    }
+    .section:last-of-type {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 2.6rem;
+      margin-bottom: 24px;
+      font-weight: 400;
+      color: #1f1c1a;
+      letter-spacing: -0.5px;
+      text-align: center;
+    }
+    .section-title span {
+      color: var(--marrom);
+    }
+
+    /* SOBRE - TEXTO CENTRALIZADO E ÁREAS ABAIXO */
+    .sobre-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .sobre-texto p {
+      font-size: 1.15rem;
+      margin-bottom: 18px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      text-align: center;
+    }
+
+    /* Áreas de atuação - centralizado abaixo */
+    .sobre-destaques {
+      background: var(--bege-suave);
+      padding: 28px 24px;
+      border-radius: 24px;
+      margin-top: 30px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .sobre-destaques h4 {
+      font-family: 'Juana', serif;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .sobre-destaques ul {
+      list-style: none;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 20px;
+    }
+    .sobre-destaques li {
+      padding: 6px 0;
+      font-weight: 400;
+      text-align: center;
+    }
+    .sobre-destaques li::before {
+      content: "– ";
+      color: var(--marrom);
+    }
+
+    /* serviços */
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .servico-card {
+      background: var(--branco);
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid var(--bege-suave);
+      transition: 0.2s;
+    }
+    .servico-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--marrom);
+    }
+    .servico-card h3 {
+      font-family: 'Juana', serif;
+      font-size: 1.5rem;
+      color: var(--marrom);
+      margin-bottom: 10px;
+    }
+    .servico-card p {
+      color: #3f3a36;
+      font-size: 0.95rem;
+    }
+    .servico-card .preco {
+      display: inline-block;
+      margin-top: 16px;
+      background: var(--bege-suave);
+      padding: 4px 16px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* depoimentos */
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .depoimento {
+      background: white;
+      padding: 28px 24px;
+      border-radius: 30px;
+      border: 1px solid #ede3ce;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .depoimento p {
+      font-style: italic;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+    .depoimento .autor {
+      font-weight: 600;
+      color: var(--marrom);
+    }
+
+    /* Estrelas */
+    .estrelas {
+      color: var(--marrom);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* ====== CONTATO - SIMPLIFICADO ====== */
+    .contato-wrap {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .btn-contato-wpp {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--marrom);
+      color: white;
+      padding: 18px 48px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.3rem;
+      transition: 0.2s;
+      font-family: 'Barlow', sans-serif;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 20px rgba(188, 151, 95, 0.35);
+      border: 2px solid var(--marrom);
+    }
+    .btn-contato-wpp:hover {
+      background: var(--marrom-escuro);
+      border-color: var(--marrom-escuro);
+      transform: scale(1.04);
+      box-shadow: 0 6px 28px rgba(188, 151, 95, 0.45);
+    }
+
+    .btn-contato-wpp svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+      flex-shrink: 0;
+    }
+
+    /* rodapé */
+    footer {
+      background: #1f1c1a;
+      color: #ddd;
+      padding: 36px 0;
+      margin-top: 20px;
+    }
+    footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    footer small {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 300;
+      font-size: 0.9rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .footer-social a {
+      color: var(--bege-suave);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
+    }
+    .footer-social a:hover {
+      color: var(--marrom);
+    }
+    .footer-social svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--bege-suave);
+      transition: fill 0.2s;
+    }
+    .footer-social a:hover svg {
+      fill: var(--marrom);
+    }
+
+    /* ========== RESPONSIVIDADE ========== */
+
+    /* Tablets e telas médias */
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      .hero-img {
+        flex: 0 0 260px;
+      }
+      .hero-img .foto-wrapper {
+        width: 260px;
+        height: 260px;
+      }
+      .section-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Celulares grandes e tablets pequenos */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      header {
+        padding: 10px 0;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+      }
+      .logo span {
+        font-size: 0.8rem;
+      }
+
+      .hero {
+        padding: 35px 0 28px;
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+      }
+      .hero-content {
+        flex: 1 1 100%;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1.05rem;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .btn {
+        min-width: 160px;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+      }
+      .hero-img {
+        flex: 0 0 200px;
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+      }
+      .hero-img .foto-wrapper {
+        width: 200px;
+        height: 200px;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+      .section-title {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .sobre-texto p {
+        font-size: 1.05rem;
+        text-align: center;
+      }
+      .sobre-destaques {
+        max-width: 100%;
+        margin-top: 20px;
+        padding: 20px 16px;
+      }
+      .sobre-destaques ul {
+        gap: 4px 14px;
+      }
+      .sobre-destaques li {
+        font-size: 0.95rem;
+      }
+
+      .servicos-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .servico-card {
+        padding: 20px 16px;
+      }
+      .servico-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .depoimentos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .btn-contato-wpp {
+        padding: 14px 32px;
+        font-size: 1.1rem;
+        gap: 12px;
+      }
+      .btn-contato-wpp svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      footer .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
+      footer small {
+        font-size: 0.8rem;
+      }
+      .footer-social {
+        justify-content: center;
+        gap: 16px;
+      }
+    }
+
+    /* Celulares pequenos */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 12px;
+      }
+
+      header {
+        padding: 8px 0;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+      .logo span {
+        font-size: 0.75rem;
+      }
+
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      .hero-content p {
+        font-size: 0.95rem;
+      }
+      .hero-badge {
+        font-size: 0.8rem;
+        padding: 3px 14px;
+      }
+
+      .btn {
+        min-width: 140px;
+        padding: 10px 20px;
+        font-size: 0.85rem;
+      }
+      .btn-group {
+        gap: 10px;
+      }
+
+      .hero-img {
+        flex: 0 0 160px;
+        max-width: 160px;
+      }
+      .hero-img .foto-wrapper {
+        width: 160px;
+        height: 160px;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .sobre-texto p {
+        font-size: 0.95rem;
+        text-align: center;
+      }
+      .sobre-destaques {
+        padding: 16px 14px;
+      }
+      .sobre-destaques ul {
+        flex-direction: column;
+        gap: 2px;
+      }
+      .sobre-destaques li {
+        font-size: 0.9rem;
+      }
+
+      .servicos-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .btn-contato-wpp {
+        padding: 12px 24px;
+        font-size: 1rem;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+      }
+      .btn-contato-wpp svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .depoimento {
+        padding: 20px 16px;
+      }
+      .depoimento p {
+        font-size: 0.9rem;
+      }
+
+      .footer-social a {
+        font-size: 0.85rem;
+      }
+      .footer-social svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-flex">
+    <a href="#" class="logo">
+      Marcella Soares
+      <span>Neuropsicopedagoga</span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">Especialista em desenvolvimento infantil</div>
+        <h1>Transformando desafios em <strong>potencial</strong></h1>
+        <p>Acolhimento, ciência e estratégias personalizadas para crianças e adolescentes.</p>
+        <div class="btn-group">
+          <a href="#contato" class="btn">Agendar avaliação</a>
+          <a href="#sobre" class="btn btn-outline">Conheça minha trajetória</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <div class="foto-wrapper">
+          <img src="/marcella.jpeg" alt="Marcella Soares">
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE - TEXTO CENTRALIZADO E ÁREAS ABAIXO -->
+    <section id="sobre" class="section">
+      <h2 class="section-title">Sobre <span>Marcella</span></h2>
+      <div class="sobre-container">
+        <div class="sobre-texto">
+          <p><strong>Me chamo Marcella Soares</strong>, sou Neuropsicopedagoga e especialista em transtornos do Neurodesenvolvimento. Apaixonada pelo desenvolvimento infantil, dedico-me a ajudar crianças a superarem desafios neurodesenvolvimentais com uma abordagem humana e personalizada.</p>
+          <p>Comigo, você encontra orientações práticas e estratégias eficazes para que seu filho tenha todas as oportunidades para um desenvolvimento saudável e pleno. Juntos, podemos construir um futuro brilhante.</p>
+          <p><strong>Formação:</strong> Pedagogia, Neuropsicopedagoga, Certificada em Transtornos do Neurodesenvolvimento, cursando Análise do Comportamento Aplicada.</p>
+        </div>
+
+        <!-- Áreas de atuação - centralizado abaixo -->
+        <div class="sobre-destaques">
+          <h4>Áreas de atuação</h4>
+          <ul>
+            <li>Dificuldades de aprendizagem</li>
+            <li>TDAH · Autismo</li>
+            <li>Transtornos de leitura/escrita</li>
+            <li>Estimulação cognitiva</li>
+            <li>Avaliação Neuropsicopedagógica</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="section">
+      <h2 class="section-title">Serviços <span>· Atendimento</span></h2>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <h3>Consulta</h3>
+          <p>Sessão individual com abordagem personalizada para necessidades específicas.</p>
+          <span class="preco">R$ 230</span>
+        </div>
+        <div class="servico-card">
+          <h3>Avaliação</h3>
+          <p>Análise aprofundada com instrumentos neuropsicopedagógicos, laudo e devolutiva.</p>
+          <span class="preco">R$ 2.300</span>
+        </div>
+        <div class="servico-card">
+          <h3>Presencial</h3>
+          <p>SHLS Quadra 716 Bloco A, Sala 507, Asa Sul · Brasília-DF</p>
+          <span class="preco">CEP 70.390-700</span>
+        </div>
+        <div class="servico-card">
+          <h3>Online</h3>
+          <p>Atendimento remoto para todo o Brasil, com a mesma qualidade e acolhimento.</p>
+          <span class="preco">Agende já</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="section">
+      <h2 class="section-title">Depoimentos <span>· Quem confia</span></h2>
+      <div class="depoimentos-grid">
+        <div class="depoimento">
+          <span class="estrelas">★★★★★</span>
+          <p>"A Marcella transformou a relação do meu filho com a escola. Com muita paciência e estratégias certeiras, ele evoluiu demais."</p>
+          <div class="autor">— Mãe do Enzo</div>
+        </div>
+        <div class="depoimento">
+          <span class="estrelas">★★★★★</span>
+          <p>"A avaliação foi muito completa e a devolutiva clara. Nos sentimos acolhidos e entendemos melhor as necessidades da nossa filha."</p>
+          <div class="autor">— Família Rodrigues</div>
+        </div>
+        <div class="depoimento">
+          <span class="estrelas">★★★★★</span>
+          <p>"Recomendo de olhos fechados. Profissional dedicada, atualizada e com um carinho que faz toda a diferença."</p>
+          <div class="autor">— Carla M.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO - SIMPLIFICADO -->
+    <section id="contato" class="section" style="border-bottom: none;">
+      <h2 class="section-title">Contato <span>· vamos conversar?</span></h2>
+      <div class="contato-wrap">
+        <a href="https://wa.me/5561993151762" target="_blank" class="btn-contato-wpp">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Entrar em contato
+        </a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <small>&copy; <span id="ano"></span> Marcella Soares · Neuropsicopedagoga</small>
+    <div class="footer-social">
+      <a href="https://instagram.com/marcellasoares.neuropp" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+        Instagram
+      </a>
+      <a href="mailto:marcella.neuropp@gmail.com" aria-label="E-mail">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/>
+          <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/>
+        </svg>
+        E-mail
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Ano atual no footer
+  document.getElementById('ano').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
