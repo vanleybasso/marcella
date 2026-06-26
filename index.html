@@ -292,37 +292,35 @@
       font-size: 0.95rem;
     }
 
-    /* depoimentos */
+    /* depoimentos - IMAGENS MENORES */
     .depoimentos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 30px;
       margin-top: 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .depoimento {
       background: white;
-      padding: 28px 24px;
-      border-radius: 30px;
+      border-radius: 24px;
       border: 1px solid #ede3ce;
       box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      overflow: hidden;
+      transition: 0.3s;
+      max-width: 260px;
+      margin: 0 auto;
     }
-    .depoimento p {
-      font-style: italic;
-      font-size: 1rem;
-      margin-bottom: 12px;
+    .depoimento:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
-    .depoimento .autor {
-      font-weight: 600;
-      color: var(--marrom);
-    }
-
-    /* Estrelas */
-    .estrelas {
-      color: var(--marrom);
-      font-size: 1.1rem;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
+    .depoimento img {
+      width: 100%;
+      height: auto;
       display: block;
+      border-radius: 24px;
     }
 
     /* ====== CONTATO - SIMPLIFICADO ====== */
@@ -360,6 +358,66 @@
       height: 30px;
       fill: white;
       flex-shrink: 0;
+    }
+
+    /* ====== BOTÃO FLUTUANTE WHATSAPP - PALETA DO SITE ====== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--marrom);
+      color: white;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 30px rgba(188, 151, 95, 0.4);
+      transition: all 0.3s ease;
+      z-index: 999;
+      text-decoration: none;
+      border: 3px solid white;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.12);
+      background: var(--marrom-escuro);
+      box-shadow: 0 8px 40px rgba(188, 151, 95, 0.6);
+    }
+
+    .whatsapp-float svg {
+      width: 38px;
+      height: 38px;
+      fill: white;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float:hover svg {
+      transform: scale(1.05);
+    }
+
+    /* Pulso animado com a cor do site */
+    .whatsapp-float::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--marrom);
+      animation: pulse-wpp 2s infinite;
+      z-index: -1;
+    }
+
+    @keyframes pulse-wpp {
+      0% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
     }
 
     /* rodapé */
@@ -424,6 +482,23 @@
       }
       .section-title {
         font-size: 2.2rem;
+      }
+      .depoimentos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        max-width: 700px;
+      }
+      .depoimento {
+        max-width: 220px;
+      }
+      .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        bottom: 25px;
+        right: 25px;
+      }
+      .whatsapp-float svg {
+        width: 34px;
+        height: 34px;
       }
     }
 
@@ -517,8 +592,16 @@
       }
 
       .depoimentos-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        max-width: 500px;
+      }
+      .depoimento {
+        max-width: 100%;
+        border-radius: 20px;
+      }
+      .depoimento img {
+        border-radius: 20px;
       }
 
       .btn-contato-wpp {
@@ -529,6 +612,18 @@
       .btn-contato-wpp svg {
         width: 26px;
         height: 26px;
+      }
+
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+        border-width: 2px;
+      }
+      .whatsapp-float svg {
+        width: 30px;
+        height: 30px;
       }
 
       footer .container {
@@ -615,6 +710,19 @@
         gap: 14px;
       }
 
+      .depoimentos-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 320px;
+      }
+      .depoimento {
+        max-width: 280px;
+        border-radius: 18px;
+      }
+      .depoimento img {
+        border-radius: 18px;
+      }
+
       .btn-contato-wpp {
         padding: 12px 24px;
         font-size: 1rem;
@@ -627,11 +735,16 @@
         height: 22px;
       }
 
-      .depoimento {
-        padding: 20px 16px;
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 16px;
+        right: 16px;
+        border-width: 2px;
       }
-      .depoimento p {
-        font-size: 0.9rem;
+      .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
       }
 
       .footer-social a {
@@ -722,24 +835,18 @@
       </div>
     </section>
 
-    <!-- DEPOIMENTOS -->
+    <!-- DEPOIMENTOS - IMAGENS MENORES -->
     <section id="depoimentos" class="section">
       <h2 class="section-title">Depoimentos <span>· Quem confia</span></h2>
       <div class="depoimentos-grid">
         <div class="depoimento">
-          <span class="estrelas">★★★★★</span>
-          <p>"A Marcella transformou a relação do meu filho com a escola. Com muita paciência e estratégias certeiras, ele evoluiu demais."</p>
-          <div class="autor">— Mãe do Enzo</div>
+          <img src="/depoimento1.jpeg" alt="Depoimento de cliente - WhatsApp" loading="lazy">
         </div>
         <div class="depoimento">
-          <span class="estrelas">★★★★★</span>
-          <p>"A avaliação foi muito completa e a devolutiva clara. Nos sentimos acolhidos e entendemos melhor as necessidades da nossa filha."</p>
-          <div class="autor">— Família Rodrigues</div>
+          <img src="/depoimento2.jpeg" alt="Depoimento de cliente - WhatsApp" loading="lazy">
         </div>
         <div class="depoimento">
-          <span class="estrelas">★★★★★</span>
-          <p>"Recomendo de olhos fechados. Profissional dedicada, atualizada e com um carinho que faz toda a diferença."</p>
-          <div class="autor">— Carla M.</div>
+          <img src="/depoimento3.jpeg" alt="Depoimento de cliente - WhatsApp" loading="lazy">
         </div>
       </div>
     </section>
@@ -780,9 +887,39 @@
   </div>
 </footer>
 
+<!-- BOTÃO FLUTUANTE WHATSAPP - COR MARROM -->
+<a href="https://wa.me/5561993151762" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
 <script>
   // Ano atual no footer
   document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // ====== FUNÇÃO PARA VOLTAR AO TOPO AO ATUALIZAR ======
+  (function() {
+    // Verifica se a página está sendo recarregada
+    if (performance.navigation.type === 1 || performance.getEntriesByType('navigation')[0]?.type === 'reload') {
+      // Se for recarregamento, rola para o topo imediatamente
+      window.scrollTo({
+        top: 0,
+        behavior: 'instant' // 'smooth' para animação suave ou 'instant' para imediato
+      });
+    }
+  })();
+
+  // Também rola para o topo quando a página carrega completamente
+  window.addEventListener('load', function() {
+    // Pequeno delay para garantir que tudo foi carregado
+    setTimeout(function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Animação suave
+      });
+    }, 100);
+  });
 </script>
 
 </body>
