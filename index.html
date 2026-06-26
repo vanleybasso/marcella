@@ -261,7 +261,7 @@
       color: var(--marrom);
     }
 
-    /* serviços */
+    /* serviços - SEM PREÇOS, CEP E AGENDE JÁ */
     .servicos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -275,6 +275,7 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.02);
       border: 1px solid var(--bege-suave);
       transition: 0.2s;
+      text-align: center;
     }
     .servico-card:hover {
       transform: translateY(-6px);
@@ -289,15 +290,6 @@
     .servico-card p {
       color: #3f3a36;
       font-size: 0.95rem;
-    }
-    .servico-card .preco {
-      display: inline-block;
-      margin-top: 16px;
-      background: var(--bege-suave);
-      padding: 4px 16px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.9rem;
     }
 
     /* depoimentos */
@@ -707,29 +699,25 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
+    <!-- SERVIÇOS - SEM PREÇOS, CEP E AGENDE JÁ -->
     <section id="servicos" class="section">
       <h2 class="section-title">Serviços <span>· Atendimento</span></h2>
       <div class="servicos-grid">
         <div class="servico-card">
           <h3>Consulta</h3>
           <p>Sessão individual com abordagem personalizada para necessidades específicas.</p>
-          <span class="preco">R$ 230</span>
         </div>
         <div class="servico-card">
           <h3>Avaliação</h3>
           <p>Análise aprofundada com instrumentos neuropsicopedagógicos, laudo e devolutiva.</p>
-          <span class="preco">R$ 2.300</span>
         </div>
         <div class="servico-card">
           <h3>Presencial</h3>
           <p>SHLS Quadra 716 Bloco A, Sala 507, Asa Sul · Brasília-DF</p>
-          <span class="preco">CEP 70.390-700</span>
         </div>
         <div class="servico-card">
           <h3>Online</h3>
           <p>Atendimento remoto para todo o Brasil, com a mesma qualidade e acolhimento.</p>
-          <span class="preco">Agende já</span>
         </div>
       </div>
     </section>
