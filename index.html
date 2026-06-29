@@ -292,7 +292,7 @@
       font-size: 0.95rem;
     }
 
-    /* depoimentos - IMAGENS MENORES */
+    /* depoimentos - AJUSTADO PARA REMOVER FUNDO BRANCO */
     .depoimentos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -303,10 +303,10 @@
       margin-right: auto;
     }
     .depoimento {
-      background: white;
+      background: transparent;
       border-radius: 24px;
-      border: 1px solid #ede3ce;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      border: none;
+      box-shadow: none;
       overflow: hidden;
       transition: 0.3s;
       max-width: 260px;
@@ -321,6 +321,7 @@
       height: auto;
       display: block;
       border-radius: 24px;
+      background: transparent;
     }
 
     /* ====== CONTATO - SIMPLIFICADO ====== */
@@ -835,7 +836,7 @@
       </div>
     </section>
 
-    <!-- DEPOIMENTOS - IMAGENS MENORES -->
+    <!-- DEPOIMENTOS - IMAGENS MENORES COM FUNDO TRANSPARENTE -->
     <section id="depoimentos" class="section">
       <h2 class="section-title">Depoimentos <span>· Quem confia</span></h2>
       <div class="depoimentos-grid">
