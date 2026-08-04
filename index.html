@@ -324,6 +324,84 @@
       background: transparent;
     }
 
+    /* ====== LIVRO - NOVA SEÇÃO ====== */
+    .livro-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    .livro-imagem {
+      flex: 0 0 220px;
+      transition: transform 0.3s ease;
+    }
+
+    .livro-imagem:hover {
+      transform: scale(1.03);
+    }
+
+    .livro-imagem img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      display: block;
+      border: 2px solid var(--bege-suave);
+    }
+
+    .livro-info {
+      flex: 1 1 350px;
+      text-align: left;
+    }
+
+    .livro-info h3 {
+      font-family: 'Juana', serif;
+      font-size: 1.8rem;
+      color: var(--marrom);
+      margin-bottom: 6px;
+    }
+
+    .livro-info .livro-autores {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1rem;
+      color: #5a4e3e;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .livro-info p {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.05rem;
+      color: #3f3a36;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .btn-comprar {
+      display: inline-block;
+      background: var(--marrom);
+      color: white;
+      padding: 14px 40px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Barlow', sans-serif;
+      transition: 0.2s;
+      border: 1px solid var(--marrom);
+    }
+
+    .btn-comprar:hover {
+      background: var(--marrom-escuro);
+      border-color: var(--marrom-escuro);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(188, 151, 95, 0.3);
+    }
+
     /* ====== CONTATO - SIMPLIFICADO ====== */
     .contato-wrap {
       text-align: center;
@@ -501,6 +579,16 @@
         width: 34px;
         height: 34px;
       }
+
+      .livro-container {
+        gap: 30px;
+      }
+      .livro-imagem {
+        flex: 0 0 180px;
+      }
+      .livro-info h3 {
+        font-size: 1.5rem;
+      }
     }
 
     /* Celulares grandes e tablets pequenos */
@@ -603,6 +691,19 @@
       }
       .depoimento img {
         border-radius: 20px;
+      }
+
+      .livro-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+      }
+      .livro-info {
+        text-align: center;
+      }
+      .livro-imagem {
+        flex: 0 0 200px;
+        max-width: 200px;
       }
 
       .btn-contato-wpp {
@@ -724,6 +825,21 @@
         border-radius: 18px;
       }
 
+      .livro-imagem {
+        flex: 0 0 160px;
+        max-width: 160px;
+      }
+      .livro-info h3 {
+        font-size: 1.3rem;
+      }
+      .livro-info p {
+        font-size: 0.95rem;
+      }
+      .btn-comprar {
+        padding: 12px 30px;
+        font-size: 0.95rem;
+      }
+
       .btn-contato-wpp {
         padding: 12px 24px;
         font-size: 1rem;
@@ -836,6 +952,24 @@
       </div>
     </section>
 
+    <!-- LIVRO - CO AUTORIA -->
+    <section id="livro" class="section">
+      <h2 class="section-title">Coautora do livro <span>· ABA</span></h2>
+      <div class="livro-container">
+        <div class="livro-imagem">
+          <a href="https://bit.ly/4vlbReg" target="_blank">
+            <img src="/livro.jpeg" alt="Livro ABA - Teoria e Prática">
+          </a>
+        </div>
+        <div class="livro-info">
+          <h3>ABA: Teoria e Prática</h3>
+          <p class="livro-autores">Claudio Sarilho · Dr. Thiago Castro · Marcella Soares</p>
+          <p>Uma obra indispensável para profissionais e famílias que buscam compreender e aplicar a Análise do Comportamento Aplicada no dia a dia, com embasamento científico e olhar humano.</p>
+          <a href="https://bit.ly/4vlbReg" target="_blank" class="btn-comprar">Adquirir o livro</a>
+        </div>
+      </div>
+    </section>
+
     <!-- DEPOIMENTOS - IMAGENS MENORES COM FUNDO TRANSPARENTE -->
     <section id="depoimentos" class="section">
       <h2 class="section-title">Depoimentos <span>· Quem confia</span></h2>
@@ -909,18 +1043,17 @@
       // Se for recarregamento, rola para o topo imediatamente
       window.scrollTo({
         top: 0,
-        behavior: 'instant' // 'smooth' para animação suave ou 'instant' para imediato
+        behavior: 'instant'
       });
     }
   })();
 
   // Também rola para o topo quando a página carrega completamente
   window.addEventListener('load', function() {
-    // Pequeno delay para garantir que tudo foi carregado
     setTimeout(function() {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth' // Animação suave
+        behavior: 'smooth'
       });
     }, 100);
   });
